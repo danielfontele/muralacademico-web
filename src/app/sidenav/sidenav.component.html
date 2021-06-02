@@ -1,0 +1,14 @@
+<mat-drawer-container autosize>
+    <mat-drawer #drawer mode="side" [opened]="getShowing()" class="sidenav" position="end">
+        <mat-list role="list" class="itemlist">
+            <mat-list-item (click)='goCategoria()' role="listitem">Categoria</mat-list-item>
+            <mat-list-item (click)='goCurso()' role="listitem">Curso</mat-list-item>
+            <mat-list-item (click)='goEndereco()' role="listitem">Endereço</mat-list-item>
+            <mat-list-item (click)='goPalestrante()' role="listitem">Palestrante</mat-list-item>
+            <mat-list-item (click)='goPessoa()' role="listitem">Pessoa</mat-list-item>
+            <mat-list-item (click)='goPostagem()' role="listitem">Postagem</mat-list-item>
+            <mat-list-item (click)='goTelefone()' role="listitem">Telefone</mat-list-item>
+            <mat-list-item (click)='goUsuario()' role="listitem">Usuário</mat-list-item>
+        </mat-list>
+    </mat-drawer>
+</mat-drawer-container>

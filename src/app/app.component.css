@@ -1,0 +1,38 @@
+app-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    color: #fff;
+    box-shadow: 0 3px 5px -1px rgb(0 0 0 / 20%), 0 6px 10px 0 rgb(0 0 0 / 14%), 0 1px 18px 0 rgb(0 0 0 / 12%);
+}
+
+body {
+    margin-top: 60px;
+}
+
+.app {
+    width: 80vw;
+    margin-left: 10vw;
+}
+
+.bgs-color {
+    background-color: #FF4081;
+}
+
+.bgw-color {
+    background-color: #F44336;
+}
+
+.p-color {
+    color: #3f51b5
+}
+
+.s-color {
+    color: #FF4081;
+}
+
+.w-color {
+    color: #F44336;
+}

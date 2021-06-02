@@ -1,0 +1,31 @@
+.sidenav {
+    max-width: fit-content;
+    margin-top: 60px;
+    position: fixed;
+    z-index: 1;
+    color: #fff;
+    box-shadow: 0 3px 5px -1px rgb(0 0 0 / 20%), 0 6px 10px 0 rgb(0 0 0 / 14%), 0 1px 18px 0 rgb(0 0 0 / 12%);
+}
+
+.itemlist :hover {
+    transition: ease-in-out 0.4s;
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+.pad {
+    padding-left: 1rem;
+    padding-right: 10rem;
+}
+
+.mat-list-base .mat-list-item, .mat-list-base .mat-list-option {
+    padding-left: 1rem;
+    padding-right: 2rem;
+}
+/*  padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: fixed;
+    float: right;
+    height: 100vh; */

@@ -1,0 +1,51 @@
+<app-usuario-main></app-usuario-main>
+<br>
+<div>
+    <div class="card-container">
+        <form [formGroup]="formUsuario" (ngSubmit)="onSubmit" class="form-exemplo">
+
+            <div>
+                <mat-form-field class="exemplo-full-width" appearance="outline">
+                    <mat-label>ID</mat-label>
+                    <input matInput formControlName="id">
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Usuario</mat-label>
+                    <input type="text" matInput placeholder="Ex. Geral" formControlName="usuario"
+                        [errorStateMatcher]="matcher" required>
+                    <mat-error
+                        *ngIf="getControl.usuario.hasError('usuario') && !getControl.usuario.hasError('required')">
+                        Digite um usuario válido!
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Senha</mat-label>
+                    <input type="text" matInput placeholder="Ex. Geral" formControlName="senha"
+                        [errorStateMatcher]="matcher" required>
+                    <mat-error *ngIf="getControl.senha.hasError('senha') && !getControl.senha.hasError('required')">
+                        Digite um senha válido!
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field class="exemplo-full-width" appearance="outline">
+                    <mat-label>Versão</mat-label>
+                    <input matInput placeholder="1" formControlName="versao" pattern="[0-9]*" required>
+                    <mat-error *ngIf="isFieldInvalid('versao')">Versao obrigatória, use somente números!</mat-error>
+                </mat-form-field>
+            </div>
+
+            <br>
+
+            <button mat-stroked-button type="submit" (click)="onSubmit()" color="primary"> Salvar </button>
+
+        </form>
+    </div>
+</div>

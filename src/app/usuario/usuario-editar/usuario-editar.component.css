@@ -1,0 +1,42 @@
+table {
+    width: 100%;
+}
+
+.table-col {
+    width: 35vw;
+}
+
+.campo-pesquisa {
+    width: 40%;
+    left: 30%;
+    text-align: center;
+}
+
+.col-2 {
+    display: flex;
+    max-width: 80vw;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0;
+}
+
+.form-container {
+    width: 35vw;
+}
+
+.mat-row .mat-cell {
+    border-bottom: 1px solid transparent;
+    border-top: 1px solid transparent;
+    cursor: pointer;
+    transition: ease-in-out 0.4s;
+}
+
+.mat-row:hover .mat-cell {
+    background-color: #f0f0f0;
+}
+
+.form-exemplo {
+    
+}
