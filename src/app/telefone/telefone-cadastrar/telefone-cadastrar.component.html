@@ -1,1 +1,74 @@
-<p>telefone-cadastrar works!</p>
+<app-telefone-main></app-telefone-main>
+<br>
+<div>
+    <div class="card-container">
+        <form [formGroup]="formTelefone" (ngSubmit)="onSubmit" class="form-exemplo">
+
+            <div>
+                <mat-form-field class="exemplo-full-width" appearance="outline">
+                    <mat-label>ID</mat-label>
+                    <input matInput formControlName="id">
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Nome</mat-label>
+                    <input type="text" matInput placeholder="Ex. Geral" formControlName="nome"
+                        [errorStateMatcher]="matcher" required>
+                    <mat-error *ngIf="getControl.nome.hasError('nome') && !getControl.nome.hasError('required')">
+                        Digite um nome válido!
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Nome</mat-label>
+                    <input type="text" matInput placeholder="Ex. Geral" formControlName="nome"
+                        [errorStateMatcher]="matcher" required>
+                    <mat-error *ngIf="getControl.nome.hasError('nome') && !getControl.nome.hasError('required')">
+                        Digite um nome válido!
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Nome</mat-label>
+                    <input type="text" matInput placeholder="Ex. Geral" formControlName="nome"
+                        [errorStateMatcher]="matcher" required>
+                    <mat-error *ngIf="getControl.nome.hasError('nome') && !getControl.nome.hasError('required')">
+                        Digite um nome válido!
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>tipo</mat-label>
+                    <mat-select formControlName="tipo" required>
+                        <mat-option value="celular">Celular</mat-option>
+                        <mat-option value="fixo">Fixo</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="getControl.tipo.hasError('tipo') && !getControl.tipo.hasError('required')">
+                        Digite um tipo válido!
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field class="exemplo-full-width" appearance="outline">
+                    <mat-label>Versão</mat-label>
+                    <input matInput placeholder="1" formControlName="versao" pattern="[0-9]*" required>
+                    <mat-error *ngIf="isFieldInvalid('versao')">Versao obrigatória, use somente números!</mat-error>
+                </mat-form-field>
+            </div>
+
+            <br>
+
+            <button mat-stroked-button type="submit" (click)="onSubmit()" color="primary"> Salvar </button>
+
+        </form>
+    </div>
+</div>

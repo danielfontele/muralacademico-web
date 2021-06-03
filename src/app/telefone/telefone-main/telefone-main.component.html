@@ -1,1 +1,11 @@
-<p>telefone-main works!</p>
+<div>
+    <mat-button-toggle-group name="selected" aria-label="Selected" [value]="getSelectedButton()">
+        <mat-button-toggle value="/telefone/cadastrar" routerLink="/telefone/cadastrar">
+            <a>Cadastrar</a>
+        </mat-button-toggle>
+        <mat-button-toggle value="/telefone/listar" routerLink="/telefone/listar"><a>Listar</a>
+        </mat-button-toggle>
+        <mat-button-toggle value="/telefone/editar" routerLink="/telefone/editar">Editar</mat-button-toggle>
+        <mat-button-toggle value="/telefone/deletar" routerLink="/telefone/deletar">Deletar</mat-button-toggle>
+    </mat-button-toggle-group>
+</div>

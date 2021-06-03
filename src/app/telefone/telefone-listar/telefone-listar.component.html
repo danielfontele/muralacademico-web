@@ -1,1 +1,51 @@
-<p>telefone-listar works!</p>
+<app-telefone-main></app-telefone-main>
+<br>
+<div class="table-col mat-elevation-z8">
+    <br>
+    <mat-form-field class="campo-pesquisa">
+        <mat-label>Pesquisar</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Geral" #input>
+    </mat-form-field>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <!-- Coluna Id -->
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef> Id </th>
+            <td mat-cell *matCellDef="let telefone"> {{telefone.id}} </td>
+        </ng-container>
+
+            <!-- Coluna DDD -->
+            <ng-container matColumnDef="ddd">
+                <th mat-header-cell *matHeaderCellDef> DDD </th>
+                <td mat-cell *matCellDef="let telefone"> {{telefone.ddd}} </td>
+            </ng-container>
+
+            <!-- Coluna numero -->
+            <ng-container matColumnDef="numero">
+                <th mat-header-cell *matHeaderCellDef> numero </th>
+                <td mat-cell *matCellDef="let telefone"> {{telefone.numero}} </td>
+            </ng-container>
+
+            <!-- Coluna tipo -->
+            <ng-container matColumnDef="tipo">
+                <th mat-header-cell *matHeaderCellDef> tipo </th>
+                <td mat-cell *matCellDef="let telefone"> {{telefone.tipo}} </td>
+            </ng-container>
+
+        <!-- Coluna Versão -->
+        <ng-container matColumnDef="versao">
+            <th mat-header-cell *matHeaderCellDef> Versão </th>
+            <td mat-cell *matCellDef="let telefone"> {{telefone.versao}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        <!-- Linha para quando não tiver resultado para pesquisa -->
+        <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">Nenhum resultado para a pesquisa "{{input.value}}"</td>
+        </tr>
+    </table>
+    <mat-paginator></mat-paginator>
+    <br>
+</div>
