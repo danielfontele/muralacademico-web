@@ -1,1 +1,176 @@
-<p>endereco-editar works!</p>
+<app-endereco-main></app-endereco-main>
+<br>
+<div class="col-2">
+    <div class="table-col mat-elevation-z8">
+        <br>
+        <mat-form-field class="campo-pesquisa">
+            <mat-label>Pesquisar</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Geral" #input>
+        </mat-form-field>
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+            <!-- Coluna Id -->
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef> Id </th>
+                <td mat-cell *matCellDef="let endereco"> {{endereco.id}} </td>
+            </ng-container>
+
+            <!-- Coluna cep -->
+            <ng-container matColumnDef="cep">
+                <th mat-header-cell *matHeaderCellDef> cep </th>
+                <td mat-cell *matCellDef="let endereco"> {{endereco.cep}} </td>
+            </ng-container>
+
+            <!-- Coluna rua -->
+            <ng-container matColumnDef="rua">
+                <th mat-header-cell *matHeaderCellDef> rua </th>
+                <td mat-cell *matCellDef="let endereco"> {{endereco.rua}} </td>
+            </ng-container>
+
+            <!-- Coluna complemento -->
+            <ng-container matColumnDef="complemento">
+                <th mat-header-cell *matHeaderCellDef> complemento </th>
+                <td mat-cell *matCellDef="let endereco"> {{endereco.complemento}} </td>
+            </ng-container>
+
+            <!-- Coluna bairro -->
+            <ng-container matColumnDef="bairro">
+                <th mat-header-cell *matHeaderCellDef> bairro </th>
+                <td mat-cell *matCellDef="let endereco"> {{endereco.bairro}} </td>
+            </ng-container>
+
+            <!-- Coluna cidade -->
+            <ng-container matColumnDef="cidade">
+                <th mat-header-cell *matHeaderCellDef> cidade </th>
+                <td mat-cell *matCellDef="let endereco"> {{endereco.cidade}} </td>
+            </ng-container>
+
+            <!-- Coluna estado -->
+            <ng-container matColumnDef="estado">
+                <th mat-header-cell *matHeaderCellDef> estado </th>
+                <td mat-cell *matCellDef="let endereco"> {{endereco.estado}} </td>
+            </ng-container>
+
+            <!-- Coluna Versão -->
+            <ng-container matColumnDef="versao">
+                <th mat-header-cell *matHeaderCellDef> Versão </th>
+                <td mat-cell *matCellDef="let endereco"> {{endereco.versao}} </td>
+            </ng-container>
+
+            <!-- Header e click event -->
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row (click)="selectedRow(row)" class="teste" *matRowDef="let row; columns: displayedColumns;">
+            </tr>
+
+            <!-- Linha para quando não tiver resultado para pesquisa -->
+            <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="4">Nenhum resultado para a pesquisa "{{input.value}}"</td>
+            </tr>
+        </table>
+        <mat-paginator></mat-paginator>
+        <br>
+    </div>
+    <div class="form-container">
+        <div class="card-container">
+            <form [formGroup]="formEndereco" (ngSubmit)="onSubmit" class="form-exemplo">
+
+                <div>
+                    <mat-form-field class="exemplo-full-width" appearance="outline">
+                        <mat-label>ID</mat-label>
+                        <input matInput formControlName="id" required>
+                    </mat-form-field>
+                </div>
+
+                <div>
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>cep</mat-label>
+                        <input type="text" matInput placeholder="Ex. Geral" formControlName="cep"
+                            [errorStateMatcher]="matcher" required>
+                        <mat-error *ngIf="getControl.cep.hasError('cep') && !getControl.cep.hasError('required')">
+                            Digite um cep válido!
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div>
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>rua</mat-label>
+                        <input type="text" matInput placeholder="Ex. Geral" formControlName="rua"
+                            [errorStateMatcher]="matcher" required>
+                        <mat-error *ngIf="getControl.rua.hasError('rua') && !getControl.rua.hasError('required')">
+                            Digite uma rua válido!
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div>
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>numero</mat-label>
+                        <input type="text" matInput placeholder="Ex. Geral" formControlName="numero"
+                            [errorStateMatcher]="matcher" required>
+                        <mat-error *ngIf="getControl.numero.hasError('numero') && !getControl.numero.hasError('required')">
+                            Digite um numero válido!
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div>
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>complemento</mat-label>
+                        <input type="text" matInput placeholder="Ex. Geral" formControlName="complemento"
+                            [errorStateMatcher]="matcher" required>
+                        <mat-error *ngIf="getControl.complemento.hasError('complemento') && !getControl.complemento.hasError('required')">
+                            Digite um complemento válido!
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div>
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>bairro</mat-label>
+                        <input type="text" matInput placeholder="Ex. Geral" formControlName="bairro"
+                            [errorStateMatcher]="matcher" required>
+                        <mat-error *ngIf="getControl.bairro.hasError('bairro') && !getControl.bairro.hasError('required')">
+                            Digite um bairro válido!
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div>
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>cidade</mat-label>
+                        <input type="text" matInput placeholder="Ex. Geral" formControlName="cidade"
+                            [errorStateMatcher]="matcher" required>
+                        <mat-error *ngIf="getControl.cidade.hasError('cidade') && !getControl.cidade.hasError('required')">
+                            Digite uma cidade válido!
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div>
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>estado</mat-label>
+                        <input type="text" matInput placeholder="Ex. Geral" formControlName="estado"
+                            [errorStateMatcher]="matcher" required>
+                        <mat-error *ngIf="getControl.estado.hasError('estado') && !getControl.estado.hasError('required')">
+                            Digite um estado válido!
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div>
+                    <mat-form-field class="exemplo-full-width" appearance="outline">
+                        <mat-label>Versão</mat-label>
+                        <input matInput formControlName="versao" pattern="[0-9]*">
+                        <mat-error *ngIf="isFieldInvalid('versao')">Versao obrigatória, use somente números!</mat-error>
+                    </mat-form-field>
+                </div>
+
+                <br>
+
+                <button mat-stroked-button type="submit" (click)="onSubmit()" color="primary"> Editar </button>
+
+            </form>
+        </div>
+    </div>
+</div>
