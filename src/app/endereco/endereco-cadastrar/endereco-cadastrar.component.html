@@ -37,7 +37,7 @@
                 <mat-form-field class="example-full-width" appearance="outline">
                     <mat-label>complemento</mat-label>
                     <input type="text" matInput placeholder="Ex. Geral" formControlName="complemento"
-                        [errorStateMatcher]="matcher" required>
+                        [errorStateMatcher]="matcher">
                     <mat-error
                         *ngIf="getControl.complemento.hasError('complemento') && !getControl.complemento.hasError('required')">
                         Digite um complemento válido!

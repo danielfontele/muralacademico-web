@@ -14,23 +14,29 @@
             <td mat-cell *matCellDef="let telefone"> {{telefone.id}} </td>
         </ng-container>
 
-            <!-- Coluna DDD -->
-            <ng-container matColumnDef="ddd">
-                <th mat-header-cell *matHeaderCellDef> DDD </th>
-                <td mat-cell *matCellDef="let telefone"> {{telefone.ddd}} </td>
-            </ng-container>
+        <!-- Coluna Codigo de Area -->
+        <ng-container matColumnDef="codigoArea">
+            <th mat-header-cell *matHeaderCellDef> Codigo de Area </th>
+            <td mat-cell *matCellDef="let telefone"> {{telefone.codigoArea}} </td>
+        </ng-container>
 
-            <!-- Coluna numero -->
-            <ng-container matColumnDef="numero">
-                <th mat-header-cell *matHeaderCellDef> numero </th>
-                <td mat-cell *matCellDef="let telefone"> {{telefone.numero}} </td>
-            </ng-container>
+        <!-- Coluna DDD -->
+        <ng-container matColumnDef="ddd">
+            <th mat-header-cell *matHeaderCellDef> DDD </th>
+            <td mat-cell *matCellDef="let telefone"> {{telefone.ddd}} </td>
+        </ng-container>
 
-            <!-- Coluna tipo -->
-            <ng-container matColumnDef="tipo">
-                <th mat-header-cell *matHeaderCellDef> tipo </th>
-                <td mat-cell *matCellDef="let telefone"> {{telefone.tipo}} </td>
-            </ng-container>
+        <!-- Coluna numero -->
+        <ng-container matColumnDef="numero">
+            <th mat-header-cell *matHeaderCellDef> numero </th>
+            <td mat-cell *matCellDef="let telefone"> {{telefone.numero}} </td>
+        </ng-container>
+
+        <!-- Coluna tipo -->
+        <ng-container matColumnDef="tipo">
+            <th mat-header-cell *matHeaderCellDef> tipo </th>
+            <td mat-cell *matCellDef="let telefone"> {{telefone.tipo}} </td>
+        </ng-container>
 
         <!-- Coluna Versão -->
         <ng-container matColumnDef="versao">

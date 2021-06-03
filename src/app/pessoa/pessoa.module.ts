@@ -18,6 +18,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     MatButtonToggleModule,
     RouterModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    NgxMaskModule
   ], exports: [
     PessoaMainComponent,
     PessoaListarComponent,

@@ -35,6 +35,8 @@ export class PessoaCadastrarComponent implements OnInit {
     this.formPessoa = this.fb.group({
       id: [],
       nome: ['', [Validators.required, Validators.minLength(3)]],
+      cpf: ['', [Validators.required, Validators.minLength(11), Validators.maxLength(11)]],
+      email: ['', [Validators.required, Validators.email]],
       versao: []
     });
     this.formPessoa.controls['id'].disable();

@@ -34,7 +34,7 @@ export class PalestranteCadastrarComponent implements OnInit {
   ngOnInit(): void {
     this.formPalestrante = this.fb.group({
       id: [],
-      nome: ['', [Validators.required, Validators.minLength(3)]],
+      usuario: ['', [Validators.required, Validators.minLength(3)]],
       senha: ['', [Validators.required, Validators.minLength(3)]],
       versao: []
     });

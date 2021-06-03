@@ -25,7 +25,7 @@
             <div>
                 <mat-form-field class="example-full-width" appearance="outline">
                     <mat-label>CPF</mat-label>
-                    <input type="text" matInput placeholder="Ex. Geral" formControlName="cpf"
+                    <input type="text" matInput placeholder="Ex. 000.000.000-00" mask="000.000.000-99" formControlName="cpf"
                         [errorStateMatcher]="matcher" required>
                     <mat-error *ngIf="getControl.cpf.hasError('cpf') && !getControl.cpf.hasError('required')">
                         Digite um cpf válido!
@@ -36,7 +36,7 @@
             <div>
                 <mat-form-field class="example-full-width" appearance="outline">
                     <mat-label>Email</mat-label>
-                    <input type="text" matInput placeholder="Ex. Geral" formControlName="email"
+                    <input type="text" matInput placeholder="Ex. exemplo@exemplo.com" formControlName="email"
                         [errorStateMatcher]="matcher" required>
                     <mat-error *ngIf="getControl.email.hasError('email') && !getControl.email.hasError('required')">
                         Digite um email válido!

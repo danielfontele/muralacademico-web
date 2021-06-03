@@ -15,6 +15,12 @@
                 <td mat-cell *matCellDef="let telefone"> {{telefone.id}} </td>
             </ng-container>
 
+            <!-- Coluna Codigo de Area -->
+            <ng-container matColumnDef="codigoArea">
+                <th mat-header-cell *matHeaderCellDef> Codigo de Area </th>
+                <td mat-cell *matCellDef="let telefone"> {{telefone.codigoArea}} </td>
+            </ng-container>
+
             <!-- Coluna DDD -->
             <ng-container matColumnDef="ddd">
                 <th mat-header-cell *matHeaderCellDef> DDD </th>
@@ -65,33 +71,35 @@
 
                 <div>
                     <mat-form-field class="example-full-width" appearance="outline">
-                        <mat-label>Nome</mat-label>
-                        <input type="text" matInput placeholder="Ex. Geral" formControlName="nome"
+                        <mat-label>codigoArea</mat-label>
+                        <input type="text" matInput placeholder="Ex. Geral" formControlName="codigoArea"
                             [errorStateMatcher]="matcher" required>
-                        <mat-error *ngIf="getControl.nome.hasError('nome') && !getControl.nome.hasError('required')">
-                            Digite um nome válido!
+                        <mat-error
+                            *ngIf="getControl.codigoArea.hasError('codigoArea') && !getControl.codigoArea.hasError('required')">
+                            Digite um codigoArea válido!
                         </mat-error>
                     </mat-form-field>
                 </div>
 
                 <div>
                     <mat-form-field class="example-full-width" appearance="outline">
-                        <mat-label>Nome</mat-label>
-                        <input type="text" matInput placeholder="Ex. Geral" formControlName="nome"
+                        <mat-label>ddd</mat-label>
+                        <input type="text" matInput placeholder="Ex. Geral" formControlName="ddd"
                             [errorStateMatcher]="matcher" required>
-                        <mat-error *ngIf="getControl.nome.hasError('nome') && !getControl.nome.hasError('required')">
-                            Digite um nome válido!
+                        <mat-error *ngIf="getControl.ddd.hasError('ddd') && !getControl.ddd.hasError('required')">
+                            Digite um ddd válido!
                         </mat-error>
                     </mat-form-field>
                 </div>
 
                 <div>
                     <mat-form-field class="example-full-width" appearance="outline">
-                        <mat-label>Nome</mat-label>
-                        <input type="text" matInput placeholder="Ex. Geral" formControlName="nome"
+                        <mat-label>numero</mat-label>
+                        <input type="text" matInput placeholder="Ex. Geral" formControlName="numero"
                             [errorStateMatcher]="matcher" required>
-                        <mat-error *ngIf="getControl.nome.hasError('nome') && !getControl.nome.hasError('required')">
-                            Digite um nome válido!
+                        <mat-error
+                            *ngIf="getControl.numero.hasError('numero') && !getControl.numero.hasError('required')">
+                            Digite um numero válido!
                         </mat-error>
                     </mat-form-field>
                 </div>

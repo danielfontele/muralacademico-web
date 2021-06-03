@@ -14,10 +14,46 @@
             <td mat-cell *matCellDef="let endereco"> {{endereco.id}} </td>
         </ng-container>
 
-        <!-- Coluna Nome -->
-        <ng-container matColumnDef="nome">
-            <th mat-header-cell *matHeaderCellDef> Nome </th>
-            <td mat-cell *matCellDef="let endereco"> {{endereco.nome}} </td>
+        <!-- Coluna cep -->
+        <ng-container matColumnDef="cep">
+            <th mat-header-cell *matHeaderCellDef> cep </th>
+            <td mat-cell *matCellDef="let endereco"> {{endereco.cep}} </td>
+        </ng-container>
+
+        <!-- Coluna rua -->
+        <ng-container matColumnDef="rua">
+            <th mat-header-cell *matHeaderCellDef> rua </th>
+            <td mat-cell *matCellDef="let endereco"> {{endereco.rua}} </td>
+        </ng-container>
+
+        <!-- Coluna numero -->
+        <ng-container matColumnDef="numero">
+            <th mat-header-cell *matHeaderCellDef> numero </th>
+            <td mat-cell *matCellDef="let endereco"> {{endereco.numero}} </td>
+        </ng-container>
+
+        <!-- Coluna complemento -->
+        <ng-container matColumnDef="complemento">
+            <th mat-header-cell *matHeaderCellDef> complemento </th>
+            <td mat-cell *matCellDef="let endereco"> {{endereco.complemento}} </td>
+        </ng-container>
+
+        <!-- Coluna bairro -->
+        <ng-container matColumnDef="bairro">
+            <th mat-header-cell *matHeaderCellDef> bairro </th>
+            <td mat-cell *matCellDef="let endereco"> {{endereco.bairro}} </td>
+        </ng-container>
+
+        <!-- Coluna cidade -->
+        <ng-container matColumnDef="cidade">
+            <th mat-header-cell *matHeaderCellDef> cidade </th>
+            <td mat-cell *matCellDef="let endereco"> {{endereco.cidade}} </td>
+        </ng-container>
+
+        <!-- Coluna estado -->
+        <ng-container matColumnDef="estado">
+            <th mat-header-cell *matHeaderCellDef> estado </th>
+            <td mat-cell *matCellDef="let endereco"> {{endereco.estado}} </td>
         </ng-container>
 
         <!-- Coluna Versão -->

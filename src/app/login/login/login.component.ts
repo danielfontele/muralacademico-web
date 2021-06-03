@@ -42,6 +42,6 @@ export class LoginComponent implements OnInit {
   }
 
   consoleLogins() {
-    console.log(this.authService.tempUsers());
+    this.authService.tempUsers();
   }
 }

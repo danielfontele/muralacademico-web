@@ -15,10 +15,16 @@
                 <td mat-cell *matCellDef="let palestrante"> {{palestrante.id}} </td>
             </ng-container>
 
-            <!-- Coluna Nome -->
-            <ng-container matColumnDef="nome">
-                <th mat-header-cell *matHeaderCellDef> Nome </th>
-                <td mat-cell *matCellDef="let palestrante"> {{palestrante.nome}} </td>
+            <!-- Coluna Usuario -->
+            <ng-container matColumnDef="usuario">
+                <th mat-header-cell *matHeaderCellDef> Usuario </th>
+                <td mat-cell *matCellDef="let palestrante"> {{palestrante.usuario}} </td>
+            </ng-container>
+
+            <!-- Coluna Senha -->
+            <ng-container matColumnDef="senha">
+                <th mat-header-cell *matHeaderCellDef> Senha </th>
+                <td mat-cell *matCellDef="let palestrante"> {{palestrante.senha}} </td>
             </ng-container>
 
             <!-- Coluna Versão -->

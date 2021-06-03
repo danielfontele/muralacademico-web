@@ -34,7 +34,13 @@ export class EnderecoCadastrarComponent implements OnInit {
   ngOnInit(): void {
     this.formEndereco = this.fb.group({
       id: [],
-      nome: ['', [Validators.required, Validators.minLength(3)]],
+      cep: ['', [Validators.required, Validators.minLength(8)]],
+      rua: ['', [Validators.required]],
+      numero: ['', [Validators.required]],
+      complemento: [''],
+      bairro: ['', [Validators.required]],
+      cidade: ['', [Validators.required]],
+      estado: ['', [Validators.required]],
       versao: []
     });
     this.formEndereco.controls['id'].disable();

@@ -37,7 +37,13 @@ export class EnderecoDeletarComponent implements OnInit {
     });
     this.formEndereco = this.fb.group({
       id: [],
-      nome: [],
+      cep: ['', [Validators.required, Validators.minLength(8)]],
+      rua: ['', [Validators.required]],
+      numero: ['', [Validators.required]],
+      complemento: ['', [Validators.required]],
+      bairro: ['', [Validators.required]],
+      cidade: ['', [Validators.required]],
+      estado: ['', [Validators.required]],
       versao: []
     });
     this.formEndereco.controls['id'].disable();

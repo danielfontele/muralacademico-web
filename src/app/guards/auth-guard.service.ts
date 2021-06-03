@@ -57,7 +57,7 @@ export class AuthGuardService {
 
   showMessage(msg: string, isError: boolean = false): void {
     this.snackbar.open(msg, 'X', {
-      duration: 2000,
+      duration: 1200,
       horizontalPosition: 'right',
       verticalPosition: 'top',
       panelClass: isError ? ['msg-error'] : ['msg-success'],
@@ -66,6 +66,9 @@ export class AuthGuardService {
 
   async tempUsers() {
     this.usuarios = await this.httpClient.get<UsuarioDto[]>(`${environment.config.URL_API}/usuario/`).toPromise();
-    return this.usuarios;
+    this.usuarios.forEach(usuario => {
+      console.log(usuario.id + ', usuario: ' + usuario.usuario + ', senha: ' + usuario.senha);
+    });
   }
+
 }

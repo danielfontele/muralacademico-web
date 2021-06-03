@@ -38,7 +38,7 @@ export class PessoaDeletarComponent implements OnInit {
     this.formPessoa = this.fb.group({
       id: [],
       nome: [],
-      cfp: [],
+      cpf: [],
       email: [],
       versao: []
     });
