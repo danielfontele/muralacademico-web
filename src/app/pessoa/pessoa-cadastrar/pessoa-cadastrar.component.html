@@ -1,1 +1,61 @@
-<p>pessoa-cadastrar works!</p>
+<app-pessoa-main></app-pessoa-main>
+<br>
+<div>
+    <div class="card-container">
+        <form [formGroup]="formPessoa" (ngSubmit)="onSubmit" class="form-exemplo">
+
+            <div>
+                <mat-form-field class="exemplo-full-width" appearance="outline">
+                    <mat-label>ID</mat-label>
+                    <input matInput formControlName="id">
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Nome</mat-label>
+                    <input type="text" matInput placeholder="Ex. Geral" formControlName="nome"
+                        [errorStateMatcher]="matcher" required>
+                    <mat-error *ngIf="getControl.nome.hasError('nome') && !getControl.nome.hasError('required')">
+                        Digite um nome válido!
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>CPF</mat-label>
+                    <input type="text" matInput placeholder="Ex. Geral" formControlName="cpf"
+                        [errorStateMatcher]="matcher" required>
+                    <mat-error *ngIf="getControl.cpf.hasError('cpf') && !getControl.cpf.hasError('required')">
+                        Digite um cpf válido!
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field class="example-full-width" appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input type="text" matInput placeholder="Ex. Geral" formControlName="email"
+                        [errorStateMatcher]="matcher" required>
+                    <mat-error *ngIf="getControl.email.hasError('email') && !getControl.email.hasError('required')">
+                        Digite um email válido!
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <mat-form-field class="exemplo-full-width" appearance="outline">
+                    <mat-label>Versão</mat-label>
+                    <input matInput placeholder="1" formControlName="versao" pattern="[0-9]*" required>
+                    <mat-error *ngIf="isFieldInvalid('versao')">Versao obrigatória, use somente números!</mat-error>
+                </mat-form-field>
+            </div>
+
+            <br>
+
+            <button mat-stroked-button type="submit" (click)="onSubmit()" color="primary"> Salvar </button>
+
+        </form>
+    </div>
+</div>

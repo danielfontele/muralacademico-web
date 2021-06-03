@@ -1,1 +1,11 @@
-<p>pessoa-main works!</p>
+<div>
+    <mat-button-toggle-group name="selected" aria-label="Selected" [value]="getSelectedButton()">
+        <mat-button-toggle value="/pessoa/cadastrar" routerLink="/pessoa/cadastrar">
+            <a>Cadastrar</a>
+        </mat-button-toggle>
+        <mat-button-toggle value="/pessoa/listar" routerLink="/pessoa/listar"><a>Listar</a>
+        </mat-button-toggle>
+        <mat-button-toggle value="/pessoa/editar" routerLink="/pessoa/editar">Editar</mat-button-toggle>
+        <mat-button-toggle value="/pessoa/deletar" routerLink="/pessoa/deletar">Deletar</mat-button-toggle>
+    </mat-button-toggle-group>
+</div>
