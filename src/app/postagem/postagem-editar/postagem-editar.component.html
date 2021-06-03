@@ -1,1 +1,122 @@
-<p>postagem-editar works!</p>
+<app-postagem-main></app-postagem-main>
+<br>
+<div class="col-2">
+    <div class="table-col mat-elevation-z8">
+        <br>
+        <mat-form-field class="campo-pesquisa">
+            <mat-label>Pesquisar</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Geral" #input>
+        </mat-form-field>
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+            <!-- Coluna Id -->
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef> Id </th>
+                <td mat-cell *matCellDef="let postagem"> {{postagem.id}} </td>
+            </ng-container>
+
+            <!-- Coluna Conteudo -->
+            <ng-container matColumnDef="conteudo">
+                <th mat-header-cell *matHeaderCellDef> Conteudo </th>
+                <td mat-cell *matCellDef="let postagem"> {{postagem.conteudo}} </td>
+            </ng-container>
+
+            <!-- Coluna Data -->
+            <ng-container matColumnDef="data">
+                <th mat-header-cell *matHeaderCellDef> Data </th>
+                <td mat-cell *matCellDef="let postagem"> {{postagem.data}} </td>
+            </ng-container>
+
+            <!-- Coluna Nivel -->
+            <ng-container matColumnDef="nivel">
+                <th mat-header-cell *matHeaderCellDef> Nivel </th>
+                <td mat-cell *matCellDef="let postagem"> {{postagem.nivel}} </td>
+            </ng-container>
+
+            <!-- Coluna Versão -->
+            <ng-container matColumnDef="versao">
+                <th mat-header-cell *matHeaderCellDef> Versão </th>
+                <td mat-cell *matCellDef="let postagem"> {{postagem.versao}} </td>
+            </ng-container>
+
+            <!-- Header e click event -->
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row (click)="selectedRow(row)" class="teste" *matRowDef="let row; columns: displayedColumns;">
+            </tr>
+
+            <!-- Linha para quando não tiver resultado para pesquisa -->
+            <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="4">Nenhum resultado para a pesquisa "{{input.value}}"</td>
+            </tr>
+        </table>
+        <mat-paginator></mat-paginator>
+        <br>
+    </div>
+    <div class="form-container">
+        <div class="card-container">
+            <form [formGroup]="formPostagem" (ngSubmit)="onSubmit" class="form-exemplo">
+
+                <div>
+                    <mat-form-field class="exemplo-full-width" appearance="outline">
+                        <mat-label>ID</mat-label>
+                        <input matInput formControlName="id" required>
+                    </mat-form-field>
+                </div>
+
+                <div>
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>conteudo</mat-label>
+                        <input type="text" matInput placeholder="Ex. Geral" formControlName="conteudo"
+                            [errorStateMatcher]="matcher" required>
+                        <mat-error
+                            *ngIf="getControl.conteudo.hasError('conteudo') && !getControl.conteudo.hasError('required')">
+                            Digite um conteudo válido!
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div>
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>data</mat-label>
+                        <input matInput [matDatepicker]="picker" formControlName="data" [errorStateMatcher]="matcher"
+                            required>
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                        <mat-error *ngIf="getControl.data.hasError('data') && !getControl.data.hasError('required')">
+                            Digite um data válido!
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div>
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>nivel</mat-label>
+                        <mat-select formControlName="nivel" required>
+                            <mat-option value="Graduacao">Graduação</mat-option>
+                            <mat-option value="PosGraduacao">Pós-Graduação</mat-option>
+                            <mat-option value="Mestrado">Mestrado</mat-option>
+                            <mat-option value="Doutorado">Doutorado</mat-option>
+                            <mat-option value="PosDoutorado">Pós-Doutorado</mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="getControl.nivel.hasError('nivel') && !getControl.nivel.hasError('required')">
+                            Digite um nivel válido!
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div>
+                    <mat-form-field class="exemplo-full-width" appearance="outline">
+                        <mat-label>Versão</mat-label>
+                        <input matInput formControlName="versao" pattern="[0-9]*">
+                        <mat-error *ngIf="isFieldInvalid('versao')">Versao obrigatória, use somente números!</mat-error>
+                    </mat-form-field>
+                </div>
+
+                <br>
+
+                <button mat-stroked-button type="submit" (click)="onSubmit()" color="primary"> Editar </button>
+
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,1 +1,11 @@
-<p>postagem-main works!</p>
+<div>
+    <mat-button-toggle-group name="selected" aria-label="Selected" [value]="getSelectedButton()">
+        <mat-button-toggle value="/postagem/cadastrar" routerLink="/postagem/cadastrar">
+            <a>Cadastrar</a>
+        </mat-button-toggle>
+        <mat-button-toggle value="/postagem/listar" routerLink="/postagem/listar"><a>Listar</a>
+        </mat-button-toggle>
+        <mat-button-toggle value="/postagem/editar" routerLink="/postagem/editar">Editar</mat-button-toggle>
+        <mat-button-toggle value="/postagem/deletar" routerLink="/postagem/deletar">Deletar</mat-button-toggle>
+    </mat-button-toggle-group>
+</div>
