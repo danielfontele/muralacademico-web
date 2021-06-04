@@ -9,12 +9,16 @@
                     </mat-error>
                 </mat-form-field>
                 <mat-form-field class="full-width-input">
-                    <input matInput type="password" placeholder="Senha" formControlName="senha" required>
+                    <input matInput [type]="hide ? 'password' : 'text'" placeholder="Senha" formControlName="senha"
+                        required>
+                    <a mat-icon-button matSuffix (click)="hide = !hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </a>
                     <mat-error *ngIf="isFieldInvalid('senha')">
                         Por favor informe a senha
                     </mat-error>
                 </mat-form-field>
-                <button mat-raised-button color="primary">Login</button>
+                <button mat-raised-button color="primary" type="submit" (click)="onSubmit()">Login</button>
             </form>
         </mat-card-content>
     </mat-card>

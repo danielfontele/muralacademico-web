@@ -4,12 +4,13 @@ import { TelefoneListarComponent } from '../telefone-listar/telefone-listar.comp
 import { TelefoneCadastrarComponent } from '../telefone-cadastrar/telefone-cadastrar.component';
 import { TelefoneEditarComponent } from '../telefone-editar/telefone-editar.component';
 import { TelefoneDeletarComponent } from '../telefone-deletar/telefone-deletar.component';
-import { AuthGuard } from 'src/app/guards/auth-guard';
+import { AuthGuardAdm } from '../../guards/auth-guard-adm';
+
 const routes: Routes = [
 
   {
     path: 'telefone',
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuardAdm],
     children: [
       {
         path: '',

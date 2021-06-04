@@ -4,12 +4,13 @@ import { CategoriaListarComponent } from '../categoria-listar/categoria-listar.c
 import { CategoriaCadastrarComponent } from '../categoria-cadastrar/categoria-cadastrar.component';
 import { CategoriaEditarComponent } from '../categoria-editar/categoria-editar.component';
 import { CategoriaDeletarComponent } from '../categoria-deletar/categoria-deletar.component';
-import { AuthGuard } from 'src/app/guards/auth-guard';
+import { AuthGuardAdm } from '../../guards/auth-guard-adm';
+
 const routes: Routes = [
 
   {
     path: 'categoria',
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuardAdm],
     children: [
       {
         path: '',

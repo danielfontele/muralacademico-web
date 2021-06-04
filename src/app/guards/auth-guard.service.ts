@@ -6,15 +6,29 @@ import { UsuarioService } from '../usuario/usuario.service';
 import { UsuarioDto } from '../model/usuario/usuario-dto';
 import { environment } from '../../environments/environment';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { PalestranteDto } from '../model/palestrante/palestrante-dto';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthGuardService {
   private loggedIn = new BehaviorSubject<boolean>(false);
+  private admin = new BehaviorSubject<boolean>(false);
 
   public get isLoggedIn() {
     return this.loggedIn.asObservable();
+  }
+  
+  public get isAdmin() {
+    return this.admin.asObservable();
+  }
+
+  public get isAdminBoolean() {
+    return this.admin.getValue();
+  }
+
+  public get isLoggedInBoolean() {
+    return this.loggedIn.getValue();
   }
 
   constructor(
@@ -25,22 +39,31 @@ export class AuthGuardService {
   ) { }
 
   usuarios: UsuarioDto[];
+  palestrantes: PalestranteDto[];
 
   ngOnInit(): void { }
 
   async login(user: UsuarioDto) {
     this.usuarios = await this.httpClient.get<UsuarioDto[]>(`${environment.config.URL_API}/usuario/`).toPromise();
+    this.palestrantes = await this.httpClient.get<PalestranteDto[]>(`${environment.config.URL_API}/palestrante/`).toPromise();
 
-    if (this.usuarios != undefined) {
+    if (!this.loggedIn.getValue()) { //Login Usuário
       this.usuarios.forEach(element => {
         if (user.usuario == element.usuario && user.senha == element.senha) {
           this.loggedIn.next(true);
+          this.admin.next(false);
           this.router.navigate(['/']);
         }
       });
-    } else if (user.usuario != '' && user.senha != '') {
-      this.loggedIn.next(true);
-      this.router.navigate(['/']);
+    }
+    if (!this.loggedIn.getValue()) { //Login Palestrante
+      this.palestrantes.forEach(element => {
+        if (user.usuario == element.usuario && user.senha == element.senha) {
+          this.loggedIn.next(true);
+          this.admin.next(true);
+          this.router.navigate(['/']);
+        }
+      });
     }
 
     if (this.loggedIn.getValue()) {

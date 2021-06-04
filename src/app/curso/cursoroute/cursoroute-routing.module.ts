@@ -4,12 +4,12 @@ import { CursoListarComponent } from '../curso-listar/curso-listar.component';
 import { CursoCadastrarComponent } from '../curso-cadastrar/curso-cadastrar.component';
 import { CursoEditarComponent } from '../curso-editar/curso-editar.component';
 import { CursoDeletarComponent } from '../curso-deletar/curso-deletar.component';
-import { AuthGuard } from 'src/app/guards/auth-guard';
+import { AuthGuardAdm } from '../../guards/auth-guard-adm';
 const routes: Routes = [
 
   {
     path: 'curso',
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuardAdm],
     children: [
       {
         path: '',

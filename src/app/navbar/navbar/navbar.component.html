@@ -9,7 +9,7 @@
         </div>
         <div class="right-itens">
             <div>
-                <a (click)='goHome()' class="fas fa-user-alt a"></a>
+                <a *ngIf="isLogged()" (click)='logout()' class="fas fa-sign-out-alt a"></a>
             </div>
             <div class="pl">
                 <a (click)="toggle()" class="fas fa-bars a"></a>

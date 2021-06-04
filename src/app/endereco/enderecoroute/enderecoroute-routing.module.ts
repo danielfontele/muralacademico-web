@@ -4,12 +4,13 @@ import { EnderecoListarComponent } from '../endereco-listar/endereco-listar.comp
 import { EnderecoCadastrarComponent } from '../endereco-cadastrar/endereco-cadastrar.component';
 import { EnderecoEditarComponent } from '../endereco-editar/endereco-editar.component';
 import { EnderecoDeletarComponent } from '../endereco-deletar/endereco-deletar.component';
-import { AuthGuard } from 'src/app/guards/auth-guard';
+import { AuthGuardAdm } from '../../guards/auth-guard-adm';
+
 const routes: Routes = [
 
   {
     path: 'endereco',
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuardAdm],
     children: [
       {
         path: '',

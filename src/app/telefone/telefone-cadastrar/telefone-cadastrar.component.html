@@ -15,7 +15,7 @@
                 <mat-form-field class="example-full-width" appearance="outline">
                     <mat-label>codigoArea</mat-label>
                     <input type="text" matInput placeholder="Ex. Geral" formControlName="codigoArea"
-                        [errorStateMatcher]="matcher" required>
+                        [errorStateMatcher]="matcher" required required mask="+00" pattern="[0-9]*">
                     <mat-error *ngIf="getControl.codigoArea.hasError('codigoArea') && !getControl.codigoArea.hasError('required')">
                         Digite um codigoArea válido!
                     </mat-error>
@@ -26,7 +26,7 @@
                 <mat-form-field class="example-full-width" appearance="outline">
                     <mat-label>ddd</mat-label>
                     <input type="text" matInput placeholder="Ex. Geral" formControlName="ddd"
-                        [errorStateMatcher]="matcher" required>
+                        [errorStateMatcher]="matcher" required required pattern="[0-9]*">
                     <mat-error *ngIf="getControl.ddd.hasError('ddd') && !getControl.ddd.hasError('required')">
                         Digite um ddd válido!
                     </mat-error>
@@ -37,7 +37,7 @@
                 <mat-form-field class="example-full-width" appearance="outline">
                     <mat-label>numero</mat-label>
                     <input type="text" matInput placeholder="Ex. Geral" formControlName="numero"
-                        [errorStateMatcher]="matcher" required>
+                        [errorStateMatcher]="matcher" required required mask="90000-0000" pattern="[0-9]*">
                     <mat-error *ngIf="getControl.numero.hasError('numero') && !getControl.numero.hasError('required')">
                         Digite um numero válido!
                     </mat-error>

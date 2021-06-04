@@ -4,12 +4,13 @@ import { UsuarioListarComponent } from '../usuario-listar/usuario-listar.compone
 import { UsuarioCadastrarComponent } from '../usuario-cadastrar/usuario-cadastrar.component';
 import { UsuarioEditarComponent } from '../usuario-editar/usuario-editar.component';
 import { UsuarioDeletarComponent } from '../usuario-deletar/usuario-deletar.component';
-import { AuthGuard } from 'src/app/guards/auth-guard';
+import { AuthGuardAdm } from '../../guards/auth-guard-adm';
+
 const routes: Routes = [
 
   {
     path: 'usuario',
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuardAdm],
     children: [
       {
         path: '',

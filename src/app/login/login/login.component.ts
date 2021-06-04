@@ -12,7 +12,7 @@ import { AuthGuardService } from '../../guards/auth-guard.service';
 export class LoginComponent implements OnInit {
   formLogin: FormGroup;
   private formSubmitAttempt: boolean; // {2}
-
+  hide = true;
   constructor(
     private fb: FormBuilder,         // {3}
     private authService: AuthGuardService, // {4}
@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
   onSubmit(): void {
     if (this.formLogin.valid) {
       this.authService.login(this.formLogin.value); // {7}
-      this.router.navigate(['/categoria']);
+      this.router.navigate(['/postagem']);
     }
     this.formSubmitAttempt = true;             // {8}
   }

@@ -4,12 +4,13 @@ import { PessoaListarComponent } from '../pessoa-listar/pessoa-listar.component'
 import { PessoaCadastrarComponent } from '../pessoa-cadastrar/pessoa-cadastrar.component';
 import { PessoaEditarComponent } from '../pessoa-editar/pessoa-editar.component';
 import { PessoaDeletarComponent } from '../pessoa-deletar/pessoa-deletar.component';
-import { AuthGuard } from 'src/app/guards/auth-guard';
+import { AuthGuardAdm } from '../../guards/auth-guard-adm';
+
 const routes: Routes = [
 
   {
     path: 'pessoa',
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuardAdm],
     children: [
       {
         path: '',

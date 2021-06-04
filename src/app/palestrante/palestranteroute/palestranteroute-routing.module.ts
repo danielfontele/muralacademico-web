@@ -4,12 +4,13 @@ import { PalestranteListarComponent } from '../palestrante-listar/palestrante-li
 import { PalestranteCadastrarComponent } from '../palestrante-cadastrar/palestrante-cadastrar.component';
 import { PalestranteEditarComponent } from '../palestrante-editar/palestrante-editar.component';
 import { PalestranteDeletarComponent } from '../palestrante-deletar/palestrante-deletar.component';
-import { AuthGuard } from 'src/app/guards/auth-guard';
+import { AuthGuardAdm } from '../../guards/auth-guard-adm';
+
 const routes: Routes = [
 
   {
     path: 'palestrante',
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuardAdm],
     children: [
       {
         path: '',
